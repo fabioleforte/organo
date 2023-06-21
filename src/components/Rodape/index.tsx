@@ -2,30 +2,42 @@
 
 import './Rodape.css';
 
-const Rodape = () => {
+interface RodapeProps {
+  imagemFacebook: string;
+  imagemTwitter: string;
+  imagemInstagram: string;
+  logo: string;
+}
+
+const Rodape = ({
+  imagemFacebook,
+  imagemTwitter,
+  imagemInstagram,
+  logo,
+}: RodapeProps) => {
   return (
     <footer className="footer">
       <section>
         <ul>
           <li>
             <a href="facebook.com" target="_blank">
-              <img src="/imgs/fb.png" alt="" />
+              <img src={imagemFacebook} alt="" />
             </a>
           </li>
           <li>
             <a href="twitter.com" target="_blank">
-              <img src="/imgs/tw.png" alt="" />
+              <img src={imagemTwitter} alt="" />
             </a>
           </li>
           <li>
             <a href="instagram.com" target="_blank">
-              <img src="/imgs/ig.png" alt="" />
+              <img src={imagemInstagram} alt="" />
             </a>
           </li>
         </ul>
       </section>
       <section>
-        <img src="/imgs/logo.png" alt="" />
+        <img src={logo} alt="" />
       </section>
       <section>
         <p>Desenvolvido por Alura.</p>

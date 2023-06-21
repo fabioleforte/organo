@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { IColaborador } from './compartilhado/interfaces/IColaborador';
 import Banner from './components/Banner';
 import Formulario from './components/Formulario';
 import Rodape from './components/Rodape';
@@ -18,14 +19,17 @@ function App() {
       corSecundaria: '#ffeedf',
     },
   ];
-  const [colaboradores, setColaboradores] = useState([]);
+  const [colaboradores, setColaboradores] = useState<IColaborador[]>([]);
 
-  const aoNovoColaborador = (colaborador) => {
+  const aoNovoColaborador = (colaborador: IColaborador) => {
     setColaboradores([...colaboradores, colaborador]);
   };
   return (
     <div className="App">
-      <Banner />
+      <Banner
+        enderecoImagem="/imgs/banner.png"
+        textoAlternativo="o Banner principal da página do Organo"
+      />
       <Formulario
         aoColaboradorCadastrado={(colaborador) =>
           aoNovoColaborador(colaborador)
@@ -43,7 +47,12 @@ function App() {
           )}
         />
       ))}
-      <Rodape />
+      <Rodape
+        imagemFacebook="/imgs/fb.png"
+        imagemInstagram="/imgs/tw.png"
+        imagemTwitter="/imgs/ig.png"
+        logo="/imgs/logo.png"
+      />
     </div>
   );
 }
